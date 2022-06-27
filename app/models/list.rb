@@ -5,4 +5,5 @@ class List < ApplicationRecord
   has_many :reviews, dependent: :destroy
 
   validates :name, uniqueness: true, presence: true
+  acts_as_favoritable
 end
