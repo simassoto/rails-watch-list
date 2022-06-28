@@ -9,9 +9,8 @@ class ReviewsController < ApplicationController
 
   def create
 
-    @review.user_id = current_user.id
     @review = Review.new(review_params)
-
+    @review.user_id = current_user.id
     @review.list = @list
     if @review.save
       redirect_to list_path(@list)
