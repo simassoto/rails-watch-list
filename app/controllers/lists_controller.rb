@@ -12,13 +12,14 @@ class ListsController < ApplicationController
   end
 
   def new
-
-    @list = List.new
+   @list = List.new
   end
 
   def create
+
     @list = List.new(list_params)
-      if @list.save
+    @list.user_id = current_user.id
+    if @list.save
         redirect_to list_path(@list)
       else
         render :new

@@ -1,13 +1,17 @@
 class ReviewsController < ApplicationController
+  before_action :set_review, only: [:edit, :update, :destroy]
+  before_action :set_list
+  before_action :authenticate_user!
 
   def new
     @review = Review.new
   end
 
   def create
-    @user = current_user
+
+    @review.user_id = current_user.id
     @review = Review.new(review_params)
-    @list = List.find(params[:list_id])
+
     @review.list = @list
     if @review.save
       redirect_to list_path(@list)
@@ -24,6 +28,10 @@ class ReviewsController < ApplicationController
   end
 
   private
+
+  def set_list
+    @list = List.find(params[:list_id])
+  end
 
   def review_params
     params.require(:review).permit(:comment, :rating)
