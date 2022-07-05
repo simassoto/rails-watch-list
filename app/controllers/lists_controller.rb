@@ -1,8 +1,14 @@
 class ListsController < ApplicationController
-  skip_before_action :authenticate_user!
+  before_action :authenticate_user!, only: [:toggle_favorite, :create, :destroy]
+
+  def toggle_favorite
+    @list = Cocktail.find_by(id: params[:id])
+    current_user.favorited?(@list)  ?current_user.unfavorite(@list) : current_user.favorite(@list)
+  end
 
   def index
     @lists = List.all
+    @favorite_lists = current_user.favorited_by_type('List')
   end
 
   def show

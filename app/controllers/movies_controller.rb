@@ -1,7 +1,15 @@
 class MoviesController < ApplicationController
+  before_action :authenticate_user!, only: :toggle_favorite
+
+  def toggle_favorite
+    @movie = Movie.find_by(id: params[:id])
+    current_user.favorited?(@movie)  ?current_user.unfavorite(@movie) : current_user.favorite(@movie)
+  end
+end
 
   def index
     @movies = Movie.all
+    @favorite_movies = current_user.favorited_by_type('Movie')
   end
 
   def show

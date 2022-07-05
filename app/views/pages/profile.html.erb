@@ -27,14 +27,18 @@
 
                   <td>
                     <p class="fw-normal mb-1"></p>
-                      <strong><%= @user.username %></strong>
+                      <strong><%= @user.username %> <%= @user.username %></strong>
                         <p class="text-muted mb-0">
                           <%= @user.email %>
 
                     </p>
                   </td>
 
-
+                  <td>
+                    <p class="fw-normal mb-1">
+                      $NB <%= @user.username %>
+                    </p>
+                  </td>
 
                 </tr>
             </tbody>
@@ -53,7 +57,7 @@
             </thead>
           </table>
 
-          <%= link_to '+ Add service  ' , new_service_path, class: "btn btn-outline-success rounded-pill border" %>
+          <%= link_to '+ Add List ' , new_list_path, class: "btn btn-outline-success rounded-pill border" %>
 
             <div class="container d-flex justify-content-center fontes" style="margin-left:-17px;">
             </div>
@@ -61,8 +65,8 @@
 
         <div class="container d-flex justify-content-center fontes" style="margin-left:-17px;">
           <ul class="listservice-group text-white col-md-12 main-title">
-            <% @user.services.each do |service| %>
-              <%= link_to edit_service_path(service) do %>
+            <% @user.lists.each do |list| %>
+              <%= link_to list_path(list) do %>
                 <li class="listservice-group-item d-flex justify-content-between align-content-center">
 
                   <div class="d-flex flex-row">
@@ -71,14 +75,14 @@
                       width="40" style="margin-top:10px; margin-bottom:10px; margin-left:10px; margin-right:10px;" />
                     <div class="about">
                       <h6 class="mt-2 fontes">
-                        <%= service.title %>
+                        <%= list.name %>
                       </h6>
                       <div class="about d-flex">
                         <span class="ms-1">
-                          <%= service.category %>
+                          <%= list.name %>
                         </span>
                         <div >
-                          <strong><span style="float:right;"> $NB <%= service.price %></span></strong>
+                          <strong><span style="float:right;"> $NB <%= list.name %></span></strong>
                         </div>
                       </div>
                     </div>
@@ -108,39 +112,40 @@
         <table class="table align-middle mt-3 bg-white main-title fontes">
         <thead class="table-header text-light fontes">
           <tr>
+            <th>Poster</th>
             <th>Title</th>
-            <th>Date</th>
-            <th>Total Price</th>
-            <th>Duration</th>
-            <th class="text-center">Status
-            <th class="text-center">Action</th>
+            <th>Overview</th>
+            <th>Rating</th>
+            <th class="text-center">Lists
+            <th class="text-center">Remove</th>
           </th>
         </thead>
 
         <tbody>
-          <% @user.bookings.future.not_confirmed.each do |booking| %>
+        <% @favorite_movies.each do |movie| %>
+
             <tr style="height: 67px">
               <td>
                     <p class="fw-bold mb-1 fontes">
-                      <%= booking.service.title %>
+                      <%= movie.poster_url %>
                     </p>
               </td>
 
               <td>
                 <p class="fw-normal mb-1 fontes">
-                  <%= booking.date.strftime("%F") %>
+                <%= movie.title %>
                 </p>
               </td>
 
               <td>
                 <p class="fw-normal mb-1 fontes">
-                  $NB <%= booking.service.price * booking.duration %>
+                <%= movie.overview %>
                 </p>
               </td>
 
               <td>
                 <p class="fw-normal mb-1 fontes">
-                  <%= booking.duration %> hours
+                <%= movie.rating %>
                 </p>
               </td>
 

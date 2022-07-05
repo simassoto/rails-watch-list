@@ -7,6 +7,16 @@ Rails.application.routes.draw do
     resources :bookmarks, only: [:new, :create]
     resources :reviews, only: :create
   end
+  resources :lists, only: :show do
+    member do
+      post 'toggle_favorite', to: "lists#toggle_favorite"
+    end
+    resources :movies, only: :index do
+      member do
+        post 'toggle_favorite', to: "movies#toggle_favorite"
+      end
+    end
+  end
   resources :bookmarks, only: :destroy
   resources :reviews, only: :destroy
 end
