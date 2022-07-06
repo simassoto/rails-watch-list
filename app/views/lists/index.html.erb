@@ -6,27 +6,20 @@
   <h3 class="mb-0">Movie Lists</h3>
   <%= link_to "Create a movie list", new_list_path, class: "btn btn-flat" %>
 </div>
-<div class="">
+<div class="container">
   <% @lists.each do |list| %>
     <div class="col-12 col-sm-4 col-md-12">
       <%= link_to list_path(list), class: "text-decoration-none" do %>
         <div class="card-product">
-            <img class="avatar" src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" />
+            <img class="avatar" src="https://kitt.lewagon.com/placeholder/users/ssaunier" />
             <div class="card-product-infos">
                 <h2><%= list.name %></h2>
+            </div>
+            <div class="card-product-infos">
                 <p>list description.</p>
             </div>
         </div>
       <% end %>
     </div>
   <% end %>
-</div>
-
-
-<div class="card-product">
-  <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" />
-  <div class="card-product-infos">
-    <h2>Product name</h2>
-    <p>Product description with <strong>relevant info</strong> only.</p>
-  </div>
 </div>

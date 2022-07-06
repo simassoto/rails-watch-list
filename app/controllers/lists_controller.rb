@@ -8,7 +8,7 @@ class ListsController < ApplicationController
 
   def index
     @lists = List.all
-    @favorite_lists = current_user.favorited_by_type('List')
+
   end
 
   def show

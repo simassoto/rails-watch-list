@@ -23,7 +23,7 @@
         <div class="bg-white rounded shadow h-100">
           <%= image_tag movie.poster_url, alt: movie.title, class: "movie-img rounded-top" %>
           <div class="p-3 rounded-bottom d-flex flex-column">
-            <strong><%= movie.title %> <span class="text-muted font-weight-normal">• <%= movie.rating %> <i class="fas fa-star star-yellow"></i></span></strong> <%= link_to "like", toggle_favorite_cocktail_path(cocktail), remote: true, method: :post %>
+            <strong><%= movie.title %> <span class="text-muted font-weight-normal">• <%= movie.rating %> <i class="fas fa-star star-yellow"></i></span></strong> <%= link_to "like", toggle_favorite_list_path(@list), remote: true, method: :post %>
             <small class="text-muted"><%= movie.overview %></small>
             <div class="d-flex align-items-end justify-content-between pt-4">
               <div>
