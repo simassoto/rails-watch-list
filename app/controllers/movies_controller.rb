@@ -5,7 +5,7 @@ class MoviesController < ApplicationController
     @movie = Movie.find_by(id: params[:id])
     current_user.favorited?(@movie)  ?current_user.unfavorite(@movie) : current_user.favorite(@movie)
   end
-end
+
 
   def index
     @movies = Movie.all

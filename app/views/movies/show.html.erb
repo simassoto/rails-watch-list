@@ -5,21 +5,20 @@
             <div class="col-md-3 gx-0">
                 <div class="card-sl" style="width: 50rem; height: 28rem">
 
-
+                <%= @movie.poster_url %>
 
                     <div class="card-heading">
-                        <%= @movie.title %> - <%= @service.category %>
-                    </div>
+                        <%= @movie.title %>
+
                     <div class="card-text">
                         <%= @movie.overview %>
                     </div>
                    <div class="card-text">
-                        $NB <%= @service.price %>/h <p style="float: right;"><%= @service.user.first_name %> <%= @service.user.last_name %></p>
+                        <%= @movie.rating %>
                     </div>
 
-                    <% unless @service.user == current_user %>
-                    <%= link_to "Book this Service", new_service_booking_path(@service), class: 'card-button' %>
-                    <% end %>
+                      <%= link_to "Add to Watch List ",  toggle_favorite_list_movie_path(@movie), remote: true, method: :post %>
+
                 </div>
             </div>
         </div>
