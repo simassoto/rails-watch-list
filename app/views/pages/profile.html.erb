@@ -149,34 +149,7 @@
                 </p>
               </td>
 
-              <td>
-                <% if booking.approved? %>
-                  <div class="text-center fontes">
-
-
-                  <p class="fontes cor2"><strong>Booking confirmed </strong></p>
-
-                        <% else %>
-                          <span style="display: flex; justify-content: center" class = "fontes">Pending Request...</span>
-                  <% end %>
-              </td>
-              <td>
-               <% if booking.approved? %>
-                  <div class="text-center fontes">
-
-                    <%= link_to 'Cancel' , booking_path(booking), method: :delete, data: {confirm: "Are you sure you want to cancel the service?" },
-                      class: "btn btn-sm-danger btn-sm rounded-pill border" %>
-
-                      <%= link_to 'Concluded' , set_confirmed_booking_path(booking), method: :post, data:
-                        {confirm: "Proceed to payment?" }, class: "btn btn-success btn-sm rounded-pill border" %>
-                        <% else %>
-
-                  <% end %>
-                  </td>
-
-
-
-            </tr>
+             </tr>
             <% end %>
         </tbody>
         </table>
