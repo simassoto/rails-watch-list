@@ -11,7 +11,7 @@ Rails.application.routes.draw do
     member do
       post 'toggle_favorite', to: "lists#toggle_favorite"
     end
-    resources :movies, only: :index do
+    resources :movies, only: [:index, :show] do
       member do
         post 'toggle_favorite', to: "movies#toggle_favorite"
       end

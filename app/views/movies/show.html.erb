@@ -1,0 +1,40 @@
+<h1 class="p-3 text-center fw-bold main-title"></h1>
+
+      <div class="container" style="margin-top:10px; width: 50rem;">
+        <div class="row">
+            <div class="col-md-3 gx-0">
+                <div class="card-sl" style="width: 50rem; height: 28rem">
+
+
+
+                    <div class="card-heading">
+                        <%= @movie.title %> - <%= @service.category %>
+                    </div>
+                    <div class="card-text">
+                        <%= @movie.overview %>
+                    </div>
+                   <div class="card-text">
+                        $NB <%= @service.price %>/h <p style="float: right;"><%= @service.user.first_name %> <%= @service.user.last_name %></p>
+                    </div>
+
+                    <% unless @service.user == current_user %>
+                    <%= link_to "Book this Service", new_service_booking_path(@service), class: 'card-button' %>
+                    <% end %>
+                </div>
+            </div>
+        </div>
+      </div>
+
+        <div class="flat-show-card text-center mt-5">
+          <div class="flex-align">
+            <h6 class="no-mb">Share with your friends</h6>
+
+          <div class="flex">
+              <i class="fa fa-brands fa-facebook-square fa-2x me-2" style="color:#7e2bb6;"></i>
+              <i class="fa fa-brands fa-twitter-square fa-2x me-2" style="color:#7e2bb6;"></i>
+              <i class="fa fa-brands fa-pinterest-square fa-2x me-2" style="color:#7e2bb6;"></i>
+              <i class="fa fa-envelope-square fa-2x" style="color:#7e2bb6;"></i>
+            </div>
+
+          </div>
+        </div>

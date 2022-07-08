@@ -1,4 +1,4 @@
-<h1 class="p-3 text-center fw-bold main-title fontes">My Profile</h1>
+<h1 class="p-3 text-center fw-bold main-title fontes">Username</h1>
 
 <!-- My bookings Container -->
 <div class="row gx-0 fontes">
@@ -9,7 +9,7 @@
 
     <div class="container p-3 bg-light border rounded " style="height: 100%; width: 27rem; float:right;">
       <div class="col-md-12 text-center">
-        <h3 class="fw-bold border-bottom main-title">Wallet</h3>
+        <h3 class="fw-bold border-bottom main-title">Username Lists</h3>
 
         <table class="table align-middle mt-3 bg-white main-title border-top: 2px solid currentColor;">
           <thead class="table-header text-light fontes">
@@ -107,7 +107,7 @@
 
     <div class="container p-3 bg-light border rounded fontes" style="width: 60rem; float:left; height: 100%;">
       <div class="col-md-12">
-        <h3 class="fw-bold border-bottom main-title text-center fontes">Bookings</h3>
+        <h3 class="fw-bold border-bottom main-title text-center fontes"> Watch List</h3>
 
         <table class="table align-middle mt-3 bg-white main-title fontes">
         <thead class="table-header text-light fontes">
@@ -121,7 +121,7 @@
           </th>
         </thead>
 
-        <tbody>
+       <tbody>
         <% @favorite_movies.each do |movie| %>
 
             <tr style="height: 67px">
@@ -202,7 +202,7 @@
 
 
 
-    <div class="container bg-light border rounded " style="height: 100%; width: 27rem; float:right;">
+   <div class="container bg-light border rounded " style="height: 100%; width: 27rem; float:right;">
       <div class="col-md-12 text-center">
         <h3 class="fw-bold border-bottom main-title mt-3">History</h3>
 
@@ -216,26 +216,7 @@
           </thead>
         </table>
 
-        <div class="tableFixHead main-title" style="height: 100%;">
-          <table>
-            <tbody>
-              <% @all_history.reverse.each do |booking| %>
-                <tr>
-                  <td>
-                    <%= booking.service.title %>
-                  </td>
-                  <td>
-                    <%= booking.date.strftime("%F") %>
-                  </td>
-                  <td class="text-end font-monospace text-<%= booking.user == current_user ? 'danger' : 'success' %>">
-                    <%= booking.user==current_user ? '-' : '+' %>$NB <%= booking.service.price * booking.duration %>
-                  </td>
-                </tr>
-                <% end %>
-            </tbody>
-          </table>
 
-        </div>
 
 
       </div>
@@ -246,62 +227,56 @@
 
 
     <div class="container bg-light border rounded " style="height: 100%; width: 60rem; float:left;">
-      <h3 class="fw-bold border-bottom main-title mt-3 text-center">My services requests</h3>
+      <h3 class="fw-bold border-bottom main-title mt-3 text-center">Favorite lists</h3>
       <table class="table align-middle mt-3 bg-white main-title">
         <thead class="table-header text-light">
           <tr>
-            <th>Client Name</th>
-            <th>Title Service</th>
-            <th>Date</th>
-            <th>Duration</th>
-            <th class="text-center">Status</th>
+            <th>User</th>
+            <th>List Name</th>
+            <th>List Description</th>
+            <th>Favorites</th>
+            <th class="text-center">Remove</th>
 
 
         </thead>
-
         <tbody>
-          <% @booked.future.not_confirmed.each do |booking| %>
-            <tr>
-              <td>
-                <div class="d-flex align-items-center">
+        <% @favorite_lists.each do |list| %>
 
-                  <div class="ms-3">
-                    <p class="fw-bold mb-1">
-                      <%= booking.user.first_name %>
-                        <%= booking.user.last_name %>
+            <tr style="height: 67px">
+              <td>
+                    <p class="fw-bold mb-1 fontes">
+                      <%= list.user %>
                     </p>
-                  </div>
-                </div>
               </td>
-              <td>
-                <p class="fw-normal mb-1">
-                  <%= booking.service.title %>
-                </p>
-              </td>
-              <td>
-                <p class="fw-normal mb-1">
-                  <%= booking.date.strftime("%F") %>
-                </p>
-              </td>
-              <td>
-                <p class="fw-normal mb-1"><%= booking.duration %> Hours
-                </p>
-              </td>
-              <td class="text-center">
 
-                <% if booking.approved? %>
-                  <p class="fontes cor2"> <strong> Booked!</strong> </p>
-                  <% else %>
-                    <%= link_to "Accept" , set_approved_booking_path(booking), method: :post,
-                      class: "btn btn-warning rounded-pill border" %>
-                      <% end %>
-
+              <td>
+                <p class="fw-normal mb-1 fontes">
+                <%= list.name %>
+                </p>
               </td>
+
+              <td>
+                <p class="fw-normal mb-1 fontes">
+                <%= list.name %>
+                </p>
+              </td>
+
+              <td>
+                <p class="fw-normal mb-1 fontes">
+                <%= list.name %>
+                </p>
+              </td>
+
+
+
+
 
             </tr>
             <% end %>
         </tbody>
-      </table>
+        </table>
+
+
 
     </div>
   </div>
