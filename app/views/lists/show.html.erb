@@ -1,6 +1,6 @@
 <%= render "bookmarks/new", list: @list %>
 <div class="position-relative">
-  <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= asset_path('list_background.jpg') %>)">
+
     <h1><%= @list.name %></h1>
   </div>
     <span class="movie-tag"><%= pluralize(@list.movies.size, 'movie') %></span>
@@ -16,22 +16,23 @@
     </div>
     <%= link_to "Add list to favorites", toggle_favorite_list_path(@list), remote: true, method: :post %>
   </div>
-  <div class="row my-2 cards">
+  <div class="container ">
     <% @list.movies.each do |movie| %>
       <% bookmark = Bookmark.find_by(list: @list, movie: movie) %>
       <%= link_to movie_path(movie), class: "text-decoration-none" do %>
-        <div class="col-12 col-sm-6 mb-4 card-product" data-aos="zoom-in">
-          <div class="bg-white rounded shadow h-100">
+        <div class="col-12 card-product   data-aos="zoom-in">
+          <div class="card-product img" >
             <%= image_tag movie.poster_url, alt: movie.title, class: "movie-img rounded-top" %>
-            <div class="p-3 rounded-bottom d-flex flex-column">
-              <strong><%= movie.title %> <span class="text-muted font-weight-normal">• <%= movie.rating %> <i class="fas fa-star star-yellow"></i></span></strong> <%= link_to "like", toggle_favorite_list_path(@list), remote: true, method: :post %>
-              <small class="text-muted"><%= movie.overview %></small>
-              <div class="d-flex align-items-end justify-content-between pt-4">
-                <div>
-                  <i class="fas fa-quote-left me-2"></i><small class="flex-grow-1"><%= bookmark.comment %></small>
-                </div>
-                <small class="text-right flex-shrink-0"><%= link_to "delete", bookmark_path(bookmark), method: :delete, data: { confirm: "Are you sure you want to remove #{movie.title} from your #{@list.name} list"}, class: 'text-danger' %></small>
+          </div>
+
+          <div class="p-3 rounded-bottom d-flex flex-column">
+            <strong><%= movie.title %> <span class="text-muted font-weight-normal">• <%= movie.rating %> <i class="fas fa-star star-yellow"></i></span></strong> <%= link_to "like", toggle_favorite_list_path(@list), remote: true, method: :post %>
+            <small class="text-muted"><%= movie.overview %></small>
+            <div class="d-flex align-items-end justify-content-between pt-4">
+              <div>
+                <i class="fas fa-quote-left me-2"></i><small class="flex-grow-1"><%= bookmark.comment %></small>
               </div>
+              <small class="text-right flex-shrink-0"><%= link_to "delete", bookmark_path(bookmark), method: :delete, data: { confirm: "Are you sure you want to remove #{movie.title} from your #{@list.name} list"}, class: 'text-danger' %></small>
             </div>
           </div>
         </div>
