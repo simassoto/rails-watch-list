@@ -16,24 +16,28 @@
     </div>
     <%= link_to "Add list to favorites", toggle_favorite_list_path(@list), remote: true, method: :post %>
   </div>
-  <div class="container ">
+  <div class="relative">
     <% @list.movies.each do |movie| %>
       <% bookmark = Bookmark.find_by(list: @list, movie: movie) %>
       <%= link_to movie_path(movie), class: "text-decoration-none" do %>
-        <div class="col-12 card-product   data-aos="zoom-in">
+        <div class="col-8 card-product  data-aos="zoom-in">
           <div class="card-product img" >
             <%= image_tag movie.poster_url, alt: movie.title, class: "movie-img rounded-top" %>
           </div>
 
-          <div class="p-3 rounded-bottom d-flex flex-column">
-            <strong><%= movie.title %> <span class="text-muted font-weight-normal">• <%= movie.rating %> <i class="fas fa-star star-yellow"></i></span></strong> <%= link_to "like", toggle_favorite_list_path(@list), remote: true, method: :post %>
+          <div class="p-3 rounded-bottom d-flex flex-column ">
+            <strong><%= movie.title %> <span class="text-muted font-weight-normal">• <%= movie.rating %> <i class="fas fa-star star-yellow"></i>
+
             <small class="text-muted"><%= movie.overview %></small>
-            <div class="d-flex align-items-end justify-content-between pt-4">
+            <div class="d-flex align-items-center justify-content-between pt-4">
               <div>
-                <i class="fas fa-quote-left me-2"></i><small class="flex-grow-1"><%= bookmark.comment %></small>
+                </span></strong> <%= link_to "like", toggle_favorite_list_path(@list), remote: true, method: :post %>
               </div>
-              <small class="text-right flex-shrink-0"><%= link_to "delete", bookmark_path(bookmark), method: :delete, data: { confirm: "Are you sure you want to remove #{movie.title} from your #{@list.name} list"}, class: 'text-danger' %></small>
-            </div>
+                <% if @list.user = current_user %>
+                  <small class="text-right flex-shrink-0"><%= link_to "delete", bookmark_path(bookmark), method: :delete, data: { confirm: "Are you sure you want to remove #{movie.title} from your #{@list.name} list"}, class: 'text-danger' %></small>
+                <% end %>
+              </div>
+
           </div>
         </div>
       <% end %>

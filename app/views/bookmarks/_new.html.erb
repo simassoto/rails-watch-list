@@ -11,11 +11,12 @@
           <%= simple_form_for [@list, @bookmark] do |f| %>
             <%= f.association :movie, collection: Movie.all.order(:title), prompt: "Select a movie", input_html: { data: { controller: "slect2" } } %>
             <%= f.input :comment, placeholder: "Enter a comment about the movie" %>
-        </div>
+
         <div class="modal-footer">
             <%= f.submit "Add movie", class: "btn btn-flat", method: :post, remote:true  %>
           <% end %>
           <button type="button" class="btn btn-cancel" data-bs-dismiss="modal">Back</button>
+        </div>
         </div>
       </div>
     </div>
