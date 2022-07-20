@@ -31,7 +31,7 @@
             <small class="text-muted"><%= movie.overview %></small>
             <div class="d-flex align-items-center justify-content-between pt-4">
               <div>
-                </span></strong> <%= link_to "like", toggle_favorite_list_path(@list), remote: true, method: :post %>
+                </span></strong><%= link_to "like", toggle_favorite_list_movie_path(movie), remote: true, method: :post %>
               </div>
                 <% if @list.user = current_user %>
                   <small class="text-right flex-shrink-0"><%= link_to "delete", bookmark_path(bookmark), method: :delete, data: { confirm: "Are you sure you want to remove #{movie.title} from your #{@list.name} list"}, class: 'text-danger' %></small>

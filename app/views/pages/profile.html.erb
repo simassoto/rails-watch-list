@@ -38,9 +38,7 @@
                 <li class="listservice-group-item d-flex justify-content-between align-content-center">
 
                   <div class="d-flex flex-row">
-                    <img
-                      src="https://res.cloudinary.com/student-le-wagon/image/upload/v1654701433/Neighbud%20images/icons8-pasta_dfcc5h.gif"
-                      width="40" style="margin-top:10px; margin-bottom:10px; margin-left:10px; margin-right:10px;" />
+
                     <div class="about">
                       <h6 class="mt-2 fontes">
                         <%= list.name %>
@@ -50,7 +48,7 @@
                           <%= list.name %>
                         </span>
                         <div >
-                          <strong><span style="float:right;"> $NB <%= list.name %></span></strong>
+                          <strong><span style="float:right;"><%= list.name %></span></strong>
                         </div>
                       </div>
                     </div>
@@ -78,7 +76,7 @@
         <h3 class="fw-bold border-bottom main-title text-center fontes"> Watch List</h3>
 
         <table class="table align-middle mt-3 bg-white main-title fontes">
-        <thead class="table-header text-light fontes">
+        <thead class="table-header ">
           <tr>
             <th>Poster</th>
             <th>Title</th>
@@ -94,20 +92,20 @@
 
             <tr style="height: 67px">
               <td>
-                    <p class="fw-bold mb-1 fontes">
-                      <%= movie.poster_url %>
-                    </p>
-              </td>
-
-              <td>
-                <p class="fw-normal mb-1 fontes">
-                <%= movie.title %>
+                <p class="fw-bold mb-1 fontes">
+                  <%= movie.poster_url %>
                 </p>
               </td>
 
               <td>
                 <p class="fw-normal mb-1 fontes">
-                <%= movie.overview %>
+                  <%= movie.title %>
+                </p>
+              </td>
+
+              <td>
+                <p class="fw-normal mb-1 fontes">
+                  <%= movie.overview %>
                 </p>
               </td>
 
@@ -117,7 +115,7 @@
                 </p>
               </td>
 
-             </tr>
+            </tr>
             <% end %>
         </tbody>
         </table>

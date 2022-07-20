@@ -8,18 +8,64 @@
 </div>
 <div class="container">
   <% @lists.each do |list| %>
-    <div class="col-12 col-sm-4 col-md-12">
+    <div class="col-12 col-sm-4 col-md-8 align-items-center" >
       <%= link_to list_path(list), class: "text-decoration-none" do %>
         <div class="card-product">
-            <img class="avatar" src="https://kitt.lewagon.com/placeholder/users/ssaunier" />
+            <img class="card-product img" src="https://kitt.lewagon.com/placeholder/users/ssaunier" />
             <div class="card-product-infos">
                 <h2><%= list.name %></h2>
             </div>
             <div class="card-product-infos">
-                <p>list description.</p>
+                <p><%= list.favoritors.count %></p>
             </div>
         </div>
       <% end %>
     </div>
   <% end %>
+</div>
+
+
+          <!-- BEGIN TABLE RESULT -->
+            <div class="table-responsive">
+                <ul class="responsive-table">
+                  <li class="table-header">
+                    <div class="col col-1 fontes">Category</div>
+                    <div class="col col-2 fontes">Title</div>
+                    <div class="col col-3 fontes">Price</div>
+                  </li>
+
+                  <% @lists.each do |list| %>
+                    <%= link_to list_path(list) do %>
+                      <li class="table-row d-flex">
+                        <div class="image col col-1"><img src="https://kitt.lewagon.com/placeholder/users/ssaunier" alt=""></div>
+                        <div class="col col-2 product"><strong><%= list.name %></strong></div>
+                        <div class="col col-3 fs-6 text-center cor" data-label="Amount"><%= list.favoritors.count %></div>
+                      </li>
+                    <% end %>
+                  <% end %>
+                </ul>
+            </div>
+        <!-- END TABLE RESULT -->
+
+            <!-- BEGIN PAGINATION -->
+            <div class="container">
+              <ul class="pagination responsive-table ps-4 mt-1">
+                <li class="disabled"><a href="#"  style="color: #7e2bb6;">«</a></li>
+                <li class="active"><a href="#"  style="color: #7e2bb6;">1</a></li>
+                <li><a href="#"  style="color: #7e2bb6;">2</a></li>
+                <li><a href="#"  style="color: #7e2bb6;">3</a></li>
+                <li><a href="#"  style="color: #7e2bb6;">4</a></li>
+                <li><a href="#"  style="color: #7e2bb6;">5</a></li>
+                <li><a href="#"  style="color: #7e2bb6;">»</a></li>
+              </ul>
+            </div>
+            <!-- END PAGINATION -->
+          </div>
+          <!-- END RESULT -->
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- END SEARCH RESULT -->
+</div>
 </div>
