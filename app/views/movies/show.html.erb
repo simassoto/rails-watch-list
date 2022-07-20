@@ -5,6 +5,38 @@
             <div class="col-md-3 gx-0">
                 <div class="card-sl" style="width: 50rem; height: 28rem">
 
+                    <div class="">
+                      <div class="flat-card-map col-12 mx-auto">
+                       <div class="card-product img" >
+                        <%= @movie.poster_url %>
+                       </div>
+                      </div>
+                    </div>
+
+                    <div class="card-heading">
+                        <%= @movie.title %>
+                    </div>
+
+                    <div class="card-text">
+                        <%= @movie.overview %>
+                    </div>
+                   <div class="card-text">
+
+                    <%= link_to "Add to Watch List ",  toggle_favorite_list_movie_path(@movie), remote: true, method: :post %>
+
+                </div>
+                </div>
+            </div>
+        </div>
+      </div>
+
+<h1 class="p-3 text-center fw-bold main-title"></h1>
+
+      <div class="container" style="margin-top:10px; width: 50rem;">
+        <div class="row">
+            <div class="col-md-3 gx-0">
+                <div class="card-sl" style="width: 50rem; height: 28rem">
+
                 <%= @movie.poster_url %>
 
                     <div class="card-heading">
