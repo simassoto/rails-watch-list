@@ -2,8 +2,8 @@
 @import url('https://fonts.googleapis.com/css?family=Nunito:400,700|Work+Sans:400,700&display=swap');
 
 // Define fonts for body and headers
-$body-font: "Brodo";
-$headers-font:"Brodo" ;
+$body-font: "Lime";
+$headers-font:"Lime" ;
 
 // To use a font file (.woff) uncomment following lines
 // @font-face {
@@ -15,6 +15,6 @@ $headers-font:"Brodo" ;
 // }
 // $my-font: "Font Name";
 @font-face {
-  font-family: 'Palm Canyon drive';
-  src: url('PalmCanyonDrive.otf');
+  font-family: 'Lime';
+  src: url('Limelight-Regular.ttf');
 }

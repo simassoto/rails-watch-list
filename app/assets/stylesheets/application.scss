@@ -13,6 +13,10 @@
 @import "pages/index";
 @import "pages/show";
 
-body {
-  background-color: #beb7ad;
+body{
+  background-image: linear-gradient( rgba(190,183,173,0.9),rgba(190,183,173,0.9)),url('list_background.jpg');
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  height: 130vh;
 }

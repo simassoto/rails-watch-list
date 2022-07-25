@@ -12,7 +12,10 @@ class ListsController < ApplicationController
   end
 
   def show
+
     @list = List.find(params[:id])
+    @user = @list.user
+    @username = @user.username
     @bookmark = Bookmark.new
     @review = Review.new(list: @list)
   end

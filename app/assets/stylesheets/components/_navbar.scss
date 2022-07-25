@@ -1,7 +1,10 @@
 .navbar-lewagon {
+  color:rgb(23, 20, 20);
+  display: flex;
+  height: 3vh;
+  width: 100%;
   justify-content: space-between;
-  background: rgb(247, 245, 245);
-  height: 30px;
+  align-items: center;
 }
 
 .navbar-lewagon .navbar-collapse {
@@ -9,9 +12,94 @@
 }
 
 .navbar-lewagon .navbar-brand img {
-  width: 30px;
+  width: 80px;
 }
 
-.color {
-  background-color:#beb7ad
+
+
+header{
+  color:rgb(184, 179, 179);
+  display: flex;
+  height: 10vh;
+  width: 100%;
+  justify-content: space-between;
+  align-items: center;
+
+}
+#iconbar{
+  color: white;
+  font-size: 2rem;
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  opacity: 0;
+  visibility: hidden;
+}
+#iconbar:hover{
+  color: teal;
+}
+.logo{
+margin-left: 60px;
+margin-top: 50px;
+
+}
+.logo img{
+  height: 7vh;
+}
+.logo h3{
+  color:rgb(18, 241, 241);
+  font-size: 25px;
+  margin-top: -35px;
+
+  margin-left: 50px;
+}
+.nav ul{
+  display: flex;
+}
+.nav ul li{
+  list-style: none;
+}
+.nav ul li a{
+  text-decoration: none;
+  padding: 0px 20px;
+  color: rgb(227, 238, 227);
+}
+.nav ul li a:hover{
+  color: teal;
+  font-weight: bolder;
+}
+.user{
+  cursor:pointer;
+  color:teal;
+  margin-top: 40px;
+  margin-right: 40px;
+}
+.user a{
+  padding: 10px 30px;
+  color: white;
+  background-color: teal;
+  text-decoration: none;
+  border-radius: 10px;
+}
+.user a:hover{
+  background-color: black;
+  color: teal;
+}
+.user i{
+  font-size: 20px;
+  margin-right: 10px;
+}
+.user h4{
+  border-radius: 40px;
+  background: teal;
+  padding: 10px 20px;
+  margin-top: 40px;
+  margin-right: 40px;
+}
+.user i{
+  padding: 0px 14px;
+}
+.user h4:hover{
+  color:teal;
+  background: black;
 }
