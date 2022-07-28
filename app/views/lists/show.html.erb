@@ -20,18 +20,18 @@
     <% @list.movies.each do |movie| %>
       <% bookmark = Bookmark.find_by(list: @list, movie: movie) %>
       <%= link_to movie_path(movie), class: "text-decoration-none" do %>
-        <div class="col-8 card-product  data-aos="zoom-in">
+        <div class="col-8 card-product  d-flex flex-row  data-aos="zoom-in">
           <div class="card-product img" >
             <%= image_tag movie.poster_url, alt: movie.title, class: "movie-img rounded-top" %>
           </div>
 
-          <div class="p-3 rounded-bottom d-flex flex-column ">
-            <strong><%= movie.title %> <span class="text-muted font-weight-normal">• <%= movie.rating %> <i class="fas fa-star star-yellow"></i>
+          <div class="p-3 rounded-bottom ">
+            <strong><%= movie.title %> <span class="text-muted font-weight-normal">• <%= movie.rating %> <i class="fas fa-star star-yellow"></i><br>
 
             <small class="text-muted"><%= movie.overview %></small>
             <div class="d-flex align-items-center justify-content-between pt-4">
               <div>
-                </span></strong><%= link_to "like", toggle_favorite_list_movie_path(movie), remote: true, method: :post %>
+                </span></strong><%= link_to "add", toggle_favorite_list_movie_path(movie), remote: true, method: :post %>
               </div>
                 <% if @list.user = current_user %>
                   <small class="text-right flex-shrink-0"><%= link_to "delete", bookmark_path(bookmark), method: :delete, data: { confirm: "Are you sure you want to remove #{movie.title} from your #{@list.name} list"}, class: 'text-danger' %></small>
